@@ -83,6 +83,7 @@ let g:NERDTreeMapActivateNode=""
 "-----------------------------------------------------------------------------
 " mappings
 
+nmap <F1> :NERDTreeToggle<cr>
 nmap <F2> <esc>:w<cr>
 nmap <S-F2> :make<CR>
 nmap <F4> <esc>:bdel<cr>
