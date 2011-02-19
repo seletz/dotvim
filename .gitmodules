@@ -13,3 +13,12 @@
 [submodule "bundle/snipmate"]
 	path = bundle/snipmate
 	url = git://github.com/msanders/snipmate.vim.git
+[submodule "bundle/cocoa-vim"]
+	path = bundle/cocoa-vim
+	url = https://github.com/msanders/cocoa.vim.git
+[submodule "bundle/pythoncomplete"]
+	path = bundle/pythoncomplete
+	url = https://github.com/vim-scripts/pythoncomplete.git
+[submodule "bundle/pyflakes-vim"]
+	path = bundle/pyflakes-vim
+	url = https://github.com/kevinw/pyflakes-vim.git
