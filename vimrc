@@ -1,4 +1,6 @@
 "-----------------------------------------------------------------------------
+" seletz' vim config
+" 2011-02-19
 set nocompatible
 
 " Pathogen
@@ -102,7 +104,7 @@ autocmd FileType python set ts=4 sw=4 expandtab nocin nosi ai
 autocmd FileType python compiler pyunit
 " autocmd FileType python set makeprg=~/bin/ptest
 " autocmd FileType python nmap K :call ShowPyDoc('<C-R><C-W>', 1)<CR>
-autocmd FileType python source ~/.vim/python/python.vim
+" autocmd FileType python source ~/.vim/python/python.vim
 autocmd FileType python abbr kpdb import pdb; pdb.set_trace()
 autocmd FileType python abbr kipdb import ipdb; ipdb.set_trace()
 autocmd FileType python abbr kvpdb import vimpdb; vimpdb.set_trace()
