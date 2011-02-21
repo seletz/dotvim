@@ -77,10 +77,13 @@ au BufWinEnter * silent! loadview "make vim load view (state) (folds, cursor, et
 
 " Supertab
 let g:SuperTabDefaultCompletionType = "context"
-let g:SuperTabContextDefaultCompletionType = "<c-x><c-o>"
+let g:SuperTabContextDefaultCompletionType = "<c-x><c-p>"
 
 " NerdTREE
 let g:NERDTreeMapActivateNode=""
+
+" PeepOpen
+nmap <leader>t :PeepOpen<CR>
 
 "-----------------------------------------------------------------------------
 " mappings
