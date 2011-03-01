@@ -105,6 +105,13 @@ map <silent> <D-S-Right> :macaction selectNextWindow:<CR>
 map <silent> <D-S-Left> :macaction selectPreviousWindow:<CR>
 
 "-----------------------------------------------------------------------------
+" abbreviations
+
+autocmd FileType python abbr kmod r ~/.vim/skeletons/skeleton.py
+autocmd FileType rst abbr kmod r ~/.vim/skeletons/skeleton.rst
+autocmd FileType zpt abbr kmod r ~/.vim/skeletons/skeleton.pt
+
+"-----------------------------------------------------------------------------
 " Python Settings
 autocmd FileType python set ts=4 sw=4 expandtab nocin nosi ai
 autocmd FileType python compiler pyunit
