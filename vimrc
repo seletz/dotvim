@@ -107,9 +107,18 @@ map <silent> <D-S-Left> :macaction selectPreviousWindow:<CR>
 "-----------------------------------------------------------------------------
 " abbreviations
 
-autocmd FileType python abbr kmod r ~/.vim/skeletons/skeleton.py
-autocmd FileType rst abbr kmod r ~/.vim/skeletons/skeleton.rst
-autocmd FileType zpt abbr kmod r ~/.vim/skeletons/skeleton.pt
+" templates
+autocmd FileType python abbr kmod <esc>:r ~/.vim/skeletons/skeleton.py<cr>
+autocmd FileType rst abbr kmod <esc>:r ~/.vim/skeletons/skeleton.rst<cr>
+autocmd FileType zpt abbr kmod <esc>:r ~/.vim/skeletons/skeleton.pt<cr>
+
+" VIM footers
+autocmd FileType css abbr kvim /* vim: set ft=css ts=4 sw=4 expandtab : */
+autocmd FileType rst abbr kvim :: <CR> vim: set ft=rst ts=4 sw=4 expandtab tw=78 :
+autocmd FileType python abbr kvim # vim: set ft=python ts=4 sw=4 expandtab :
+autocmd FileType xml abbr kvim <!-- vim: set ft=xml ts=4 sw=4 expandtab : -->
+autocmd FileType html abbr kvim <!-- vim: set ft=html ts=2 sw=2 expandtab : -->
+autocmd FileType changelog abbr kvim vim: set ft=changelog ts=4 sw=4 expandtab :
 
 "-----------------------------------------------------------------------------
 " Python Settings
