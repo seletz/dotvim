@@ -9,7 +9,9 @@ call pathogen#helptags()
 
 "-----------------------------------------------------------------------------
 " colors
-colorscheme desert
+set background=dark
+colorscheme solarized
+"colorscheme desert
 
 "-----------------------------------------------------------------------------
 " basic stuff

@@ -3,7 +3,7 @@ DotVim Files
 =================
 
 :Author: Stefan Eletzhofer
-:Date: 2011-02-21
+:Date: 2011-04-01
 
 
 Abstract
@@ -39,5 +39,16 @@ Plugins
   Nifty plugin which helps closing the square brackets ObjectiveC needs, works
   like in XCode -- almost.
 
+**solarized**
+  Nice colors. http://ethanschoonover.com/solarized
+
+
+Change Log
+==========
+
+2011-04-01
+----------
+
+- added solarized bundle
 
 ..  vim: set ft=rst tw=75 nocin nosi ai sw=4 ts=4 expandtab:
