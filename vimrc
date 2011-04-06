@@ -92,8 +92,14 @@ let g:EasyGrepRecursive=1
 
 "-----------------------------------------------------------------------------
 " mappings
+"
 
-nmap <F1> :NERDTreeToggle<cr>
+"macm Window.Select\ Next\ Tab			key=<D-Left>
+"macm Window.Select\ Previous\ Tab	key=<D-Left>
+
+" saussage fingers
+nmap <F1> <esc> 
+
 nmap <F2> <esc>:w<cr>
 nmap <S-F2> :make<CR>
 nmap <F4> <esc>:bdel<cr>
