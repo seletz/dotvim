@@ -42,9 +42,17 @@ Plugins
 **solarized**
   Nice colors. http://ethanschoonover.com/solarized
 
+**conque shell**
+  Just because we can. https://github.com/vim-scripts/Conque-Shell.gi
+
 
 Change Log
 ==========
+
+2011-04-06
+----------
+
+- added conque shell
 
 2011-04-01
 ----------
