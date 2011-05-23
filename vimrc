@@ -96,6 +96,7 @@ let g:EasyGrepRecursive=1
 
 "macm Window.Select\ Next\ Tab			key=<D-Left>
 "macm Window.Select\ Previous\ Tab	key=<D-Left>
+nmap <S-F1> <esc> :NERDTreeToggle<CR>
 
 " saussage fingers
 nmap <F1> <esc> 
