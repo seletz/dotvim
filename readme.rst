@@ -49,6 +49,12 @@ Plugins
 Change Log
 ==========
 
+2011-05-23
+----------
+
+- update plugins
+- mapped S-F1 to NERDTreeToggle
+
 2011-04-06
 ----------
 
