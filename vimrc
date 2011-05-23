@@ -10,8 +10,8 @@ call pathogen#helptags()
 "-----------------------------------------------------------------------------
 " colors
 set background=dark
-colorscheme solarized
-"colorscheme desert
+"colorscheme solarized
+colorscheme desert
 
 "-----------------------------------------------------------------------------
 " basic stuff
@@ -96,7 +96,7 @@ let g:EasyGrepRecursive=1
 
 "macm Window.Select\ Next\ Tab			key=<D-Left>
 "macm Window.Select\ Previous\ Tab	key=<D-Left>
-nmap <S-F1> <esc> :NERDTreeToggle<CR>
+nmap <S-F1> <esc>:NERDTreeToggle<CR>
 
 " saussage fingers
 nmap <F1> <esc> 
