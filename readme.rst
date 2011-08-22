@@ -45,9 +45,22 @@ Plugins
 **conque shell**
   Just because we can. https://github.com/vim-scripts/Conque-Shell.gi
 
+**closetag**
+  http://github.com/docunext/closetag.vim
+
+**delimitmate**
+  http://github.com/Raimondi/delimitMate
+
 
 Change Log
 ==========
+
+2011-08-22
+----------
+
+- closetag
+- delimitmate
+- updated bundle versions.
 
 2011-05-23
 ----------

@@ -129,6 +129,10 @@ autocmd FileType xml abbr kvim <!-- vim: set ft=xml ts=4 sw=4 expandtab : -->
 autocmd FileType html abbr kvim <!-- vim: set ft=html ts=2 sw=2 expandtab : -->
 autocmd FileType changelog abbr kvim vim: set ft=changelog ts=4 sw=4 expandtab :
 
+" Closetag Plugin 
+autocmd FileType html let b:closetag_html_style=1
+autocmd FileType html,xhtml,xml,pt,zcml source ~/.vim/bundle/closetag/plugin/closetag.vim
+
 "-----------------------------------------------------------------------------
 " Python Settings
 autocmd FileType python set ts=4 sw=4 expandtab nocin nosi ai
