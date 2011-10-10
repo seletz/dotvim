@@ -9,8 +9,14 @@ call pathogen#helptags()
 
 "-----------------------------------------------------------------------------
 " colors
-set background=dark
-colorscheme solarized
+syntax enable
+if has("gui_macvim")
+  set background=light
+  colorscheme solarized
+  let g:solarized_visibility="high"    "default value is normal
+else
+  colorscheme desert
+endif
 "colorscheme desert
 
 "-----------------------------------------------------------------------------
@@ -26,6 +32,8 @@ set smartcase
 set showmatch
 set foldenable
 set autoindent
+
+set autochdir
 
 " omnicomplete
 set wildmode=longest,list
@@ -120,6 +128,7 @@ map <silent> <D-S-Left> :macaction selectPreviousWindow:<CR>
 autocmd FileType python abbr kmod <esc>:r ~/.vim/skeletons/skeleton.py<cr>
 autocmd FileType rst abbr kmod <esc>:r ~/.vim/skeletons/skeleton.rst<cr>
 autocmd FileType zpt abbr kmod <esc>:r ~/.vim/skeletons/skeleton.pt<cr>
+autocmd FileType coffee abbr kmod <esc>:r ~/.vim/skeletons/skeleton.coffee<cr>
 
 " VIM footers
 autocmd FileType css abbr kvim /* vim: set ft=css ts=4 sw=4 expandtab : */
