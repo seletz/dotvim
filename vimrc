@@ -54,10 +54,8 @@ endif
 
 
 if has('statusline')
-  set laststatus=1            " show statusline only if there are > 1 windows
-  " Use the commented line if fugitive isn't installed
-  "set statusline=%&lt;%f\ %=\:\b%n%y%m%r%w\ %l,%c%V\ %P " a statusline, also on steroids
-  set statusline=%<;%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
+  set laststatus=2            " needed for vim-powerline
+  " I use vim-powerline now: https://github.com/Lokaltog/vim-powerline.git"
 endif
 
 if has('gui_running')
