@@ -109,7 +109,7 @@ nmap <F1> <esc>
 
 nmap <F2> <esc>:w<cr>
 nmap <S-F2> :make<CR>
-nmap <F4> <esc>:bdel<cr>
+nmap <F4> <esc>:q<cr>
 
 nmap <C-up> <C-W>k
 nmap <C-down> <C-W>j 
@@ -150,6 +150,11 @@ autocmd FileType python compiler pyunit
 autocmd FileType python abbr kpdb import pdb; pdb.set_trace()
 autocmd FileType python abbr kipdb import ipdb; ipdb.set_trace()
 autocmd FileType python abbr kvpdb import vimpdb; vimpdb.set_trace()
+
+"-----------------------------------------------------------------------------
+" Coffee Script
+autocmd FileType coffee nnoremap <silent> <f5> :CoffeeCompile vertical<cr>
+autocmd FileType coffee vnoremap <silent> <f5> :CoffeeCompile<cr>
 
 " vim: set ts=2 sw=2 expandtab:
 
