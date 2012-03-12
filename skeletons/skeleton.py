@@ -24,27 +24,20 @@ __revision__  = "$Revision: $"
 __version__   = '$Revision: $'[11:-2]
 
 
-import sys
 import os
+import sys
 import logging
 
-LOGGER=""
-def info(msg):
-    logging.getLogger(LOGGER).info(msg)
+logger = logging.getLogger("nexiles.tools.meta")
 
-def debug(msg):
-    logging.getLogger(LOGGER).debug(msg)
+def setup_logging(level=logging.DEBUG):
+    logging.basicConfig(level=level, format="%(asctime)s [%(levelname)-7s] [line %(lineno)d] %(name)s: %(message)s")
 
-def error(msg):
-    logging.getLogger(LOGGER).error(msg)
+def main():
+    pass
 
-if __name__ == "__main__":
-    import doctest
-    import unittest
-    suite = doctest.DocFileSuite("skeleton.txt",
-                                 optionflags=doctest.ELLIPSIS + doctest.REPORT_ONLY_FIRST_FAILURE )
-    unittest.TextTestRunner().run(suite)
-
-    
+if __name__ == '__main__':
+    setup_logging()
+    main()
 
 # vim: set ft=python ts=4 sw=4 expandtab :

@@ -26,6 +26,11 @@ set cpo&vim
 
 function s:LaunchPeepOpenViaVim()
   let cwd = getcwd()
+  let gitroot = finddir('.git', escape(getcwd(), ' ') . ';')
+  if !empty(gitroot)
+    echo "found git directory ->" gitroot
+    let cwd = gitroot . "/.."
+  endif
   silent exe "!open 'peepopen://" . shellescape(cwd) . "?editor=MacVim'"
 endfunction
 

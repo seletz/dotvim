@@ -3,7 +3,7 @@ DotVim Files
 =================
 
 :Author: Stefan Eletzhofer
-:Date: 2011-08-22
+:Date:   2012-03-12
 
 
 Abstract
@@ -43,7 +43,7 @@ Plugins
   Nice colors. http://ethanschoonover.com/solarized
 
 **conque shell**
-  Just because we can. https://github.com/vim-scripts/Conque-Shell.gi
+  Just because we can. https://github.com/vim-scripts/Conque-Shell.git
 
 **closetag**
   http://github.com/docunext/closetag.vim
@@ -51,9 +51,20 @@ Plugins
 **delimitmate**
   http://github.com/Raimondi/delimitMate
 
+**easy session**
+  https://github.com/xolox/vim-session
+
+**syntastic**
+  https://github.com/scrooloose/syntastic
 
 Change Log
 ==========
+
+2012-03-12
+----------
+
+- syntastic
+- easysession
 
 2011-08-22
 ----------

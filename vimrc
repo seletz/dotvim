@@ -11,7 +11,7 @@ call pathogen#helptags()
 " colors
 syntax enable
 if has("gui_macvim")
-  set background=light
+  set background=dark
   colorscheme solarized
   let g:solarized_visibility="high"    "default value is normal
 else
@@ -32,6 +32,11 @@ set smartcase
 set showmatch
 set foldenable
 set autoindent
+
+" indent folding, but limit to one level
+" set foldmethod=indent
+" set foldnestmax=1
+" nmap <C-CR> za
 
 set autochdir
 
@@ -87,9 +92,6 @@ au BufWinEnter * silent! loadview "make vim load view (state) (folds, cursor, et
 " let g:SuperTabDefaultCompletionType = "context"
 let g:SuperTabContextDefaultCompletionType = "<c-x><c-p>"
 
-" NerdTREE
-let g:NERDTreeMapActivateNode=""
-
 " PeepOpen
 nmap <leader>t :PeepOpen<CR>
 
@@ -111,13 +113,34 @@ nmap <F2> <esc>:w<cr>
 nmap <S-F2> :make<CR>
 nmap <F4> <esc>:q<cr>
 
-nmap <C-up> <C-W>k
-nmap <C-down> <C-W>j 
-nmap <C-left> <C-W>h 
-nmap <C-right> <C-W>l 
+nmap <M-up> <C-W>k
+nmap <M-down> <C-W>j
+nmap <M-left> <C-W>h
+nmap <M-right> <C-W>l
 
-map <silent> <D-S-Right> :macaction selectNextWindow:<CR>
-map <silent> <D-S-Left> :macaction selectPreviousWindow:<CR>
+map <silent> <M-D-Right> :macaction selectNextWindow:<CR>
+map <silent> <M-D-Left> :macaction selectPreviousWindow:<CR>
+
+nmap <C-S> :split<cr>
+nmap <C-V> :vsplit<cr>
+
+nnoremap <cr> :nohlsearch<cr><cr>
+
+"-----------------------------------------------------------------------------
+" easysession stuff
+
+"" Vim Session https://github.com/xolox/vim-session
+let g:session_autosave = 1
+let g:session_autoload = 1
+let g:session_command_aliases = 1
+" Don't persist options and mappings because it can corrupt sessions.
+set sessionoptions-=options
+" Always persist Vim's window size.
+set sessionoptions+=resize
+set sessionoptions-=help " no help windows restored please
+" set sessionoptions-=tabpages " no tabs
+" Persist the value of the global option 'tags'.
+let g:session_persist_globals = ['&tags']
 
 "-----------------------------------------------------------------------------
 " abbreviations
@@ -141,6 +164,12 @@ autocmd FileType html let b:closetag_html_style=1
 autocmd FileType html,xhtml,xml,pt,zcml source ~/.vim/bundle/closetag/plugin/closetag.vim
 
 "-----------------------------------------------------------------------------
+" syntastic settings
+
+" ignore too long lines and multiple WS before op warnings.
+let g:syntastic_python_checker_args = '--ignore=E501,E221'
+
+"-----------------------------------------------------------------------------
 " Python Settings
 autocmd FileType python set ts=4 sw=4 expandtab nocin nosi ai
 autocmd FileType python compiler pyunit
@@ -153,6 +182,7 @@ autocmd FileType python abbr kvpdb import vimpdb; vimpdb.set_trace()
 
 "-----------------------------------------------------------------------------
 " Coffee Script
+autocmd FileType coffee set ts=4 sw=4 expandtab nocin nosi ai
 autocmd FileType coffee nnoremap <silent> <f5> :CoffeeCompile vertical<cr>
 autocmd FileType coffee vnoremap <silent> <f5> :CoffeeCompile<cr>
 
