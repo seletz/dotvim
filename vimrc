@@ -168,6 +168,19 @@ autocmd FileType html,xhtml,xml,pt,zcml source ~/.vim/bundle/closetag/plugin/clo
 
 " ignore too long lines and multiple WS before op warnings.
 let g:syntastic_python_checker_args = '--ignore=E501,E221'
+let g:systastic_auto_jump=1
+let g:syntastic_auto_loc_list=1
+
+"-----------------------------------------------------------------------------
+" gitv plugin https://github.com/gregsexton/gitv
+
+let g:Gitv_OpenHorizontal = 1
+nmap <leader>gv :Gitv --all<cr>
+nmap <leader>gV :Gitv! --all<cr>
+vmap <leader>gV :Gitv! --all<cr>
+
+highlight diffAdded guifg=#00bf00
+highlight diffRemoved guifg=#bf0000
 
 "-----------------------------------------------------------------------------
 " Python Settings
