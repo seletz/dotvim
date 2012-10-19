@@ -4,8 +4,38 @@
 set nocompatible
 
 " Pathogen
-call pathogen#runtime_append_all_bundles()
-call pathogen#helptags()
+" call pathogen#runtime_append_all_bundles()
+" call pathogen#helptags()
+
+" Vundle
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+Bundle 'Lokaltog/vim-powerline'
+Bundle 'Raimondi/delimitMate'
+Bundle 'altercation/vim-colors-solarized'
+Bundle 'benmills/vimux'
+Bundle 'docunext/closetag.vim'
+Bundle 'gmccreight/vim-easygrep'
+Bundle 'gregsexton/gitv'
+Bundle 'jpalardy/vim-slime'
+Bundle 'kchmck/vim-coffee-script'
+Bundle 'mileszs/ack.vim'
+Bundle 'msanders/cocoa.vim'
+Bundle 'msanders/snipmate.vim'
+Bundle 'scrooloose/nerdtree'
+Bundle 'scrooloose/syntastic'
+Bundle 'tpope/vim-fugitive'
+Bundle 'tpope/vim-repeat'
+Bundle 'tpope/vim-surround'
+Bundle 'tsaleh/vim-align'
+Bundle 'tsaleh/vim-supertab'
+Bundle 'vim-scripts/Conque-Shell'
+Bundle 'vim-scripts/The-NERD-Commenter'
+Bundle 'vim-scripts/pythoncomplete'
+Bundle 'xolox/vim-session'
+
+
 
 "-----------------------------------------------------------------------------
 " colors
