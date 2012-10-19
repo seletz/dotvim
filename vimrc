@@ -136,6 +136,9 @@ nmap <leader>t :PeepOpen<CR>
 " EasyGrep
 let g:EasyGrepRecursive=1
 
+" Powerline
+let g:Powerline_symbols = 'unicode'
+
 "-----------------------------------------------------------------------------
 " mappings
 "
