@@ -62,11 +62,18 @@ set smartcase
 set showmatch
 set foldenable
 set autoindent
+set cursorline
 
 " indent folding, but limit to one level
 " set foldmethod=indent
 " set foldnestmax=1
 " nmap <C-CR> za
+
+" list trailing chars, but no eol
+set listchars+=trail:#
+set listchars-=eol:$
+set list
+autocmd FileType c,cpp,python,ruby,java,coffee,rst autocmd BufWritePre <buffer> :%s/\s\+$//e
 
 set autochdir
 
@@ -143,10 +150,10 @@ nmap <F2> <esc>:w<cr>
 nmap <S-F2> :make<CR>
 nmap <F4> <esc>:q<cr>
 
-nmap <M-up> <C-W>k
-nmap <M-down> <C-W>j
-nmap <M-left> <C-W>h
-nmap <M-right> <C-W>l
+nmap <C-up> <C-W>k
+nmap <C-down> <C-W>j
+nmap <C-left> <C-W>h
+nmap <C-right> <C-W>l
 
 map <silent> <M-D-Right> :macaction selectNextWindow:<CR>
 map <silent> <M-D-Left> :macaction selectPreviousWindow:<CR>
@@ -155,6 +162,7 @@ nmap <C-S> :split<cr>
 nmap <C-V> :vsplit<cr>
 
 nnoremap <cr> :nohlsearch<cr><cr>
+
 
 "-----------------------------------------------------------------------------
 " easysession stuff
@@ -180,6 +188,7 @@ autocmd FileType python abbr kmod <esc>:r ~/.vim/skeletons/skeleton.py<cr>
 autocmd FileType rst abbr kmod <esc>:r ~/.vim/skeletons/skeleton.rst<cr>
 autocmd FileType zpt abbr kmod <esc>:r ~/.vim/skeletons/skeleton.pt<cr>
 autocmd FileType coffee abbr kmod <esc>:r ~/.vim/skeletons/skeleton.coffee<cr>
+autocmd FileType c abbr kmod <esc>:r ~/.vim/skeletons/skeleton.c<cr>
 
 " VIM footers
 autocmd FileType css abbr kvim /* vim: set ft=css ts=4 sw=4 expandtab : */
@@ -197,7 +206,7 @@ autocmd FileType html,xhtml,xml,pt,zcml source ~/.vim/bundle/closetag/plugin/clo
 " syntastic settings
 
 " ignore too long lines and multiple WS before op warnings.
-let g:syntastic_python_checker_args = '--ignore=E501,E221'
+let g:syntastic_python_checker_args = '--ignore=E501,E221,E241'
 let g:systastic_auto_jump=1
 let g:syntastic_auto_loc_list=1
 
@@ -228,6 +237,11 @@ autocmd FileType python abbr kvpdb import vimpdb; vimpdb.set_trace()
 autocmd FileType coffee set ts=4 sw=4 expandtab nocin nosi ai
 autocmd FileType coffee nnoremap <silent> <f5> :CoffeeCompile vertical<cr>
 autocmd FileType coffee vnoremap <silent> <f5> :CoffeeCompile<cr>
+
+"-----------------------------------------------------------------------------
+" C Settings
+autocmd FileType c syn match cDefine display "_DBG.*(.*);"
+autocmd FileType c set ts=2 sw=2 si ai cin expandtab nolist tw=78
 
 " vim: set ts=2 sw=2 expandtab:
 
