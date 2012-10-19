@@ -11,9 +11,9 @@
 "
 
 " Only do this when not done yet for this buffer
-if exists("g:loaded_rst_tables_ftplugin")
-    finish
-endif
+"if exists("g:loaded_rst_tables_ftplugin")
+    "finish
+"endif
 let loaded_rst_tables_ftplugin = 1
 
 python << endpython
