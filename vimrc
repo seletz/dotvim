@@ -10,6 +10,7 @@ set nocompatible
 " Vundle
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
+Bundle 'gmarik/vundle'
 
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'Raimondi/delimitMate'
@@ -19,13 +20,16 @@ Bundle 'docunext/closetag.vim'
 Bundle 'gmccreight/vim-easygrep'
 Bundle 'gregsexton/gitv'
 Bundle 'hallettj/jslint.vim'
+Bundle 'ivanov/vim-ipython'
 Bundle 'jpalardy/vim-slime'
 Bundle 'kchmck/vim-coffee-script'
+Bundle 'majutsushi/tagbar'
 Bundle 'mileszs/ack.vim'
 Bundle 'msanders/cocoa.vim'
 Bundle 'msanders/snipmate.vim'
 Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/syntastic'
+Bundle 'shemerey/vim-peepopen'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-repeat'
 Bundle 'tpope/vim-surround'
