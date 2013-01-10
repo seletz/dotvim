@@ -1,9 +1,11 @@
-===========
-BLubb Howto
-===========
+.. _reports:
 
-:Author:    $Author$
-:Date:      $Date$
+=======
+Reports
+=======
+
+:Author:    Stefan Eletzhofer
+:Date:      |today|
 
 Abstract
 ========
@@ -14,7 +16,7 @@ to perform **functional tests** for web services.
 Blurb
 =====
 
-larg, blubb. Some **narkup** and ''another'' and ´a third´.
+larg, blubb. Some **narkup** and ''another'' and Â´a thirdÂ´.
 
 some preformatted::
 
@@ -22,13 +24,28 @@ some preformatted::
     True
     >>> type(1) is int
 
+A table `,,c`:
 
-Links
-=====
++-----+-----+-----+
+| foo | bar | baz |
++=====+=====+=====+
+| 1   | 2   | 3   |
++-----+-----+-----+
+
+
+RST Hints
+=========
 
 Plone_ is a CMS.
 
 .. _Plone: http://plone.org
+
+.. literalinclude:: write_to_excel.js
+   :language: javascript
+
+
+.. image:: aimage.jpg
+   :width: 720px
 
 
 .. vim: set ft=rst tw=75 nocin nosi ai sw=4 ts=4 expandtab:

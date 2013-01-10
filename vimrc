@@ -39,8 +39,8 @@ Bundle 'vim-scripts/Conque-Shell'
 Bundle 'vim-scripts/The-NERD-Commenter'
 Bundle 'vim-scripts/pythoncomplete'
 Bundle 'xolox/vim-session'
-
-
+Bundle 'davidhalter/jedi-vim'
+Bundle 'vim-scripts/VimClojure'
 
 "-----------------------------------------------------------------------------
 " colors
@@ -86,6 +86,7 @@ set autochdir
 set wildmode=longest,list
 
 let mapleader=","
+let maplocalleader="_"
 
 if has('cmdline_info')
    set ruler                   " show the ruler
@@ -110,7 +111,7 @@ if has('gui_running')
   set guioptions-=m
   set guioptions-=L
   set guioptions-=r
-  set guifont=Menlo:h14
+  set guifont=Monaco\ for\ Powerline:h14
 endif
 
 "-----------------------------------------------------------------------------
@@ -141,7 +142,7 @@ nmap <leader>t :PeepOpen<CR>
 let g:EasyGrepRecursive=1
 
 " Powerline
-let g:Powerline_symbols = 'unicode'
+let g:Powerline_symbols = 'fancy'
 
 "-----------------------------------------------------------------------------
 " mappings
@@ -170,6 +171,9 @@ nmap <C-S> :split<cr>
 nmap <C-V> :vsplit<cr>
 
 nnoremap <cr> :nohlsearch<cr><cr>
+
+" Align = visual
+vmap <C-CR> :Align =<CR>
 
 
 "-----------------------------------------------------------------------------
@@ -250,6 +254,13 @@ autocmd FileType coffee vnoremap <silent> <f5> :CoffeeCompile<cr>
 " C Settings
 autocmd FileType c syn match cDefine display "_DBG.*(.*);"
 autocmd FileType c set ts=2 sw=2 si ai cin expandtab nolist tw=78
+
+"-----------------------------------------------------------------------------
+" Clojure Settings
+let g:vimclojure#HighlightBuiltins = 1
+let g:vimclojure#ParenRainbow = 1
+let vimclojure#WantNailgun = 1
+
 
 " vim: set ts=2 sw=2 expandtab:
 
