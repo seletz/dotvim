@@ -15,32 +15,38 @@ Bundle 'gmarik/vundle'
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'Raimondi/delimitMate'
 Bundle 'altercation/vim-colors-solarized'
-Bundle 'benmills/vimux'
+" Bundle 'benmills/vimux'
 Bundle 'docunext/closetag.vim'
 Bundle 'gmccreight/vim-easygrep'
 Bundle 'gregsexton/gitv'
 Bundle 'hallettj/jslint.vim'
-Bundle 'ivanov/vim-ipython'
-Bundle 'jpalardy/vim-slime'
+"Bundle 'ivanov/vim-ipython'
+"Bundle 'jpalardy/vim-slime'
 Bundle 'kchmck/vim-coffee-script'
-Bundle 'majutsushi/tagbar'
-Bundle 'mileszs/ack.vim'
+" Bundle 'majutsushi/tagbar'
+"Bundle 'mileszs/ack.vim'
 Bundle 'msanders/cocoa.vim'
 Bundle 'msanders/snipmate.vim'
-Bundle 'scrooloose/nerdtree'
+" Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/syntastic'
-Bundle 'shemerey/vim-peepopen'
+"Bundle 'shemerey/vim-peepopen'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-repeat'
 Bundle 'tpope/vim-surround'
 Bundle 'tsaleh/vim-align'
 Bundle 'tsaleh/vim-supertab'
-Bundle 'vim-scripts/Conque-Shell'
+" Bundle 'vim-scripts/Conque-Shell'
 Bundle 'vim-scripts/The-NERD-Commenter'
 Bundle 'vim-scripts/pythoncomplete'
 Bundle 'xolox/vim-session'
-Bundle 'davidhalter/jedi-vim'
-Bundle 'vim-scripts/VimClojure'
+" Bundle 'davidhalter/jedi-vim'
+" Bundle 'vim-scripts/VimClojure'
+Bundle 'olethanh/Vim-nosecompiler'
+Bundle 'reinh/vim-makegreen'
+" Bundle 'Valloric/YouCompleteMe'
+Bundle 'xolox/vim-misc'
+Bundle 'kien/ctrlp'
+Bundle 'elixir-lang/vim-elixir'
 
 "-----------------------------------------------------------------------------
 " colors
@@ -78,7 +84,6 @@ set cursorline
 set listchars+=trail:#
 set listchars-=eol:$
 set list
-autocmd FileType c,cpp,python,ruby,java,coffee,rst autocmd BufWritePre <buffer> :%s/\s\+$//e
 
 set autochdir
 
@@ -116,10 +121,18 @@ endif
 
 "-----------------------------------------------------------------------------
 " backup, swap, views
-set backup                      " backups are nice ...
-set backupdir=$HOME/.vimbackup//  " but not when they clog .
+" set backup                      " backups are nice ...
+" set backupdir=$HOME/.vimbackup//  " but not when they clog .
 set directory=$HOME/.vimswap//  " Same for swap files
 set viewdir=$HOME/.vimviews//   " same for view files
+
+" sauna.reload
+set noswapfile
+set nobackup
+set nowritebackup
+
+set viewoptions-=options
+set sessionoptions-=options
 
 "" Creating directories if they don't exist
 silent execute '!mkdir -p $HOME/.vimbackup'
@@ -144,6 +157,10 @@ let g:EasyGrepRecursive=1
 " Powerline
 let g:Powerline_symbols = 'fancy'
 
+" jedi
+"let g:jedi#auto_initialization = 0
+"let g:jedi#popup_on_dot = 0
+
 "-----------------------------------------------------------------------------
 " mappings
 "
@@ -153,7 +170,7 @@ let g:Powerline_symbols = 'fancy'
 nmap <S-F1> <esc> :NERDTreeToggle<CR>
 
 " saussage fingers
-nmap <F1> <esc> 
+nmap <F1> <esc>
 
 nmap <F2> <esc>:w<cr>
 nmap <S-F2> :make<CR>
@@ -167,13 +184,11 @@ nmap <C-right> <C-W>l
 map <silent> <M-D-Right> :macaction selectNextWindow:<CR>
 map <silent> <M-D-Left> :macaction selectPreviousWindow:<CR>
 
-nmap <C-S> :split<cr>
-nmap <C-V> :vsplit<cr>
-
 nnoremap <cr> :nohlsearch<cr><cr>
 
 " Align = visual
 vmap <C-CR> :Align =<CR>
+nmap <leader>rs <esc>:%s/\s\+$//e<cr>
 
 
 "-----------------------------------------------------------------------------
@@ -198,6 +213,11 @@ let g:session_persist_globals = ['&tags']
 " templates
 autocmd FileType python abbr kmod <esc>:r ~/.vim/skeletons/skeleton.py<cr>
 autocmd FileType rst abbr kmod <esc>:r ~/.vim/skeletons/skeleton.rst<cr>
+
+" org-mode
+autocmd FileType rst abbr kmeeting <esc>:r ~/Dropbox/daily_notes/template-meeting.rst<cr>
+autocmd FileType rst abbr ktodo <esc>:r ~/Dropbox/daily_notes/template-meeting.rst<cr>
+
 autocmd FileType zpt abbr kmod <esc>:r ~/.vim/skeletons/skeleton.pt<cr>
 autocmd FileType coffee abbr kmod <esc>:r ~/.vim/skeletons/skeleton.coffee<cr>
 autocmd FileType c abbr kmod <esc>:r ~/.vim/skeletons/skeleton.c<cr>
@@ -210,17 +230,23 @@ autocmd FileType xml abbr kvim <!-- vim: set ft=xml ts=4 sw=4 expandtab : -->
 autocmd FileType html abbr kvim <!-- vim: set ft=html ts=2 sw=2 expandtab : -->
 autocmd FileType changelog abbr kvim vim: set ft=changelog ts=4 sw=4 expandtab :
 
-" Closetag Plugin 
+" Closetag Plugin
 autocmd FileType html let b:closetag_html_style=1
 autocmd FileType html,xhtml,xml,pt,zcml source ~/.vim/bundle/closetag/plugin/closetag.vim
+
+autocmd BufNewFile,BufRead test_*.py compiler nose
 
 "-----------------------------------------------------------------------------
 " syntastic settings
 
-" ignore too long lines and multiple WS before op warnings.
-let g:syntastic_python_checker_args = '--ignore=E501,E221,E241'
-let g:systastic_auto_jump=1
+let g:syntastic_python_checkers = ['pylint']
+let g:systastic_auto_jump=0
 let g:syntastic_auto_loc_list=1
+let g:syntastic_quiet_warnings=1
+
+let g:syntastic_error_symbol='✗'
+let g:syntastic_warning_symbol='⚠'
+
 
 "-----------------------------------------------------------------------------
 " gitv plugin https://github.com/gregsexton/gitv
