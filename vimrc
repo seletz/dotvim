@@ -15,45 +15,42 @@ Bundle 'gmarik/vundle'
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'Raimondi/delimitMate'
 Bundle 'altercation/vim-colors-solarized'
-" Bundle 'benmills/vimux'
 Bundle 'docunext/closetag.vim'
-Bundle 'gmccreight/vim-easygrep'
 Bundle 'gregsexton/gitv'
 Bundle 'hallettj/jslint.vim'
-"Bundle 'ivanov/vim-ipython'
-"Bundle 'jpalardy/vim-slime'
 Bundle 'kchmck/vim-coffee-script'
-" Bundle 'majutsushi/tagbar'
-"Bundle 'mileszs/ack.vim'
 Bundle 'msanders/cocoa.vim'
 Bundle 'msanders/snipmate.vim'
-" Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/syntastic'
-"Bundle 'shemerey/vim-peepopen'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-repeat'
 Bundle 'tpope/vim-surround'
 Bundle 'tsaleh/vim-align'
 Bundle 'tsaleh/vim-supertab'
-" Bundle 'vim-scripts/Conque-Shell'
 Bundle 'vim-scripts/The-NERD-Commenter'
 Bundle 'vim-scripts/pythoncomplete'
 Bundle 'xolox/vim-session'
-" Bundle 'davidhalter/jedi-vim'
-" Bundle 'vim-scripts/VimClojure'
 Bundle 'olethanh/Vim-nosecompiler'
 Bundle 'reinh/vim-makegreen'
-" Bundle 'Valloric/YouCompleteMe'
 Bundle 'xolox/vim-misc'
-Bundle 'kien/ctrlp'
 Bundle 'elixir-lang/vim-elixir'
+Bundle 'Rykka/riv.vim'
+
+" unite
+Bundle 'Shougo/vimproc.vim'
+Bundle 'Shougo/vimshell.vim'
+Bundle 'Shougo/unite.vim'
+
+" colours ....
+Bundle 'chriskempson/base16-vim'
 
 "-----------------------------------------------------------------------------
 " colors
 syntax enable
 if has("gui_macvim")
   set background=dark
-  colorscheme solarized
+  " colorscheme solarized
+  colorscheme base16-solarized
   let g:solarized_visibility="high"    "default value is normal
 else
   colorscheme desert
@@ -148,6 +145,10 @@ au BufWinEnter * silent! loadview "make vim load view (state) (folds, cursor, et
 " let g:SuperTabDefaultCompletionType = "context"
 let g:SuperTabContextDefaultCompletionType = "<c-x><c-p>"
 
+" Sessions
+let g:session_autosave = 'no'
+let g:session_autoload = 'no'
+
 " PeepOpen
 nmap <leader>t :PeepOpen<CR>
 
@@ -160,6 +161,15 @@ let g:Powerline_symbols = 'fancy'
 " jedi
 "let g:jedi#auto_initialization = 0
 "let g:jedi#popup_on_dot = 0
+
+" Unite
+call unite#filters#matcher_default#use(['matcher_fuzzy'])
+call unite#filters#sorter_default#use(['sorter_rank'])
+let g:unite_enable_start_insert = 1
+let g:unite_update_time = 200
+  let g:unite_source_grep_command = 'ack'
+  let g:unite_source_grep_default_opts = '--no-heading --no-color -a -w'
+  let g:unite_source_grep_recursive_opt = ''
 
 "-----------------------------------------------------------------------------
 " mappings
@@ -189,6 +199,73 @@ nnoremap <cr> :nohlsearch<cr><cr>
 " Align = visual
 vmap <C-CR> :Align =<CR>
 nmap <leader>rs <esc>:%s/\s\+$//e<cr>
+
+" Unite mappings
+" https://github.com/terryma/dotfiles/blob/08205cf62553213b5f0893735529de3fe5dd3f01/.vimrc
+"
+" Map space to the prefix for Unite
+nnoremap [unite] <Nop>
+nmap <space> [unite]
+
+" General fuzzy search
+nnoremap <silent> [unite]<space> :<C-u>Unite
+      \ -buffer-name=files buffer file_mru bookmark file_rec/async<CR>
+
+" Quick registers
+nnoremap <silent> [unite]r :<C-u>Unite -buffer-name=register register<CR>
+
+" Quick buffer and mru
+nnoremap <silent> [unite]u :<C-u>Unite -buffer-name=buffers buffer file_mru<CR>
+
+" Quick yank history
+nnoremap <silent> [unite]y :<C-u>Unite -buffer-name=yanks history/yank<CR>
+
+" Quick outline
+nnoremap <silent> [unite]o :<C-u>Unite -buffer-name=outline -vertical outline<CR>
+
+" Quick sessions (projects)
+nnoremap <silent> [unite]p :<C-u>Unite -buffer-name=sessions session<CR>
+
+" Quick sources
+nnoremap <silent> [unite]a :<C-u>Unite -buffer-name=sources source<CR>
+
+" Quick snippet
+nnoremap <silent> [unite]s :<C-u>Unite -buffer-name=snippets snippet<CR>
+
+" Quickly switch lcd
+nnoremap <silent> [unite]d
+      \ :<C-u>Unite -buffer-name=change-cwd -default-action=lcd directory_mru<CR>
+
+" Quick file search
+nnoremap <silent> [unite]f :<C-u>Unite -buffer-name=files file_rec/async file/new<CR>
+
+" Quick grep from cwd
+nnoremap <silent> [unite]g :<C-u>Unite -buffer-name=grep grep:.<CR>
+
+" Quick help
+nnoremap <silent> [unite]h :<C-u>Unite -buffer-name=help help<CR>
+
+" Quick line using the word under cursor
+nnoremap <silent> [unite]l :<C-u>UniteWithCursorWord -buffer-name=search_file line<CR>
+
+" Quick MRU search
+nnoremap <silent> [unite]m :<C-u>Unite -buffer-name=mru file_mru<CR>
+
+" Quick find
+nnoremap <silent> [unite]n :<C-u>Unite -buffer-name=find find:.<CR>
+
+" Quick commands
+nnoremap <silent> [unite]c :<C-u>Unite -buffer-name=commands command<CR>
+
+" Quick bookmarks
+nnoremap <silent> [unite]b :<C-u>Unite -buffer-name=bookmarks bookmark<CR>
+
+" Fuzzy search from current buffer
+" nnoremap <silent> [unite]b :<C-u>UniteWithBufferDir
+      " \ -buffer-name=files -prompt=%\  buffer file_mru bookmark file<CR>
+
+" Quick commands
+nnoremap <silent> [unite]; :<C-u>Unite -buffer-name=history history/command command<CR>
 
 
 "-----------------------------------------------------------------------------
@@ -239,7 +316,8 @@ autocmd BufNewFile,BufRead test_*.py compiler nose
 "-----------------------------------------------------------------------------
 " syntastic settings
 
-let g:syntastic_python_checkers = ['pylint']
+let g:syntastic_python_checkers = ['pep8', 'pylint']
+let g:syntastic_python_pep8_post_args='--ignore=E501,E302,E123,E203,E241,E221'
 let g:systastic_auto_jump=0
 let g:syntastic_auto_loc_list=1
 let g:syntastic_quiet_warnings=1
@@ -252,6 +330,9 @@ let g:syntastic_warning_symbol='⚠'
 " gitv plugin https://github.com/gregsexton/gitv
 
 let g:Gitv_OpenHorizontal = 1
+nmap <leader>gs :Gstatus<cr>
+nmap <leader>ga :Git add %<cr>
+nmap <leader>gd :Gdiff<cr>
 nmap <leader>gv :Gitv --all<cr>
 nmap <leader>gV :Gitv! --all<cr>
 vmap <leader>gV :Gitv! --all<cr>
